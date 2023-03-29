@@ -72,9 +72,4 @@ public class Rectangle extends Shape {
       ", shapeName=" + shapeName +
       '}';
   }
-
-  @Override
-  public void printShapeName() {
-    System.out.println(getShapeName());
-  }
 }

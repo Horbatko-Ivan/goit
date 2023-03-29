@@ -3,7 +3,7 @@ package org.itstep.module8.hw1.shapes;
 import org.itstep.module8.hw1.ParameterCalculation;
 import org.itstep.module8.hw1.listsenum.ShapeTypeList;
 
-public abstract class Shape implements ParameterCalculation, Printable {
+public abstract class Shape implements ParameterCalculation {
 
   protected double area;
 
@@ -12,6 +12,10 @@ public abstract class Shape implements ParameterCalculation, Printable {
   protected ShapeTypeList shapeName;
 
   protected Shape() {
+  }
+
+  public void printShapeName() {
+    System.out.println(getShapeName());
   }
 
   @Override

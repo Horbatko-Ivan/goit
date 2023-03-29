@@ -80,11 +80,6 @@ public class Triangle extends Shape {
   }
 
   @Override
-  public void printShapeName() {
-    System.out.println(getShapeName());
-  }
-
-  @Override
   public String toString() {
     return "Triangle{" +
       "sideA=" + sideA +
