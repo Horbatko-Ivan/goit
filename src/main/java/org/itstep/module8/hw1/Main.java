@@ -10,10 +10,10 @@ public class Main {
     IsoscelesTrapezium isoscelesTrapezium = new IsoscelesTrapezium();
     Triangle triangle = new Triangle();
 
-    circle.printShapeName();
-    rectangle.printShapeName();
-    square.printShapeName();
-    isoscelesTrapezium.printShapeName();
-    triangle.printShapeName();
+    Shape[] shapes = {circle, rectangle, square, isoscelesTrapezium, triangle};
+
+    for (Shape shape : shapes) {
+      shape.printShapeName();
+    }
   }
 }
