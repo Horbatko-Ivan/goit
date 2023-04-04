@@ -15,7 +15,7 @@ public class Main {
     System.out.println("myArrayList subList" + myArrayList.subList(4, 8));
     System.out.println("myArrayList indexOf" + myArrayList.indexOf(5));
     System.out.println("myArrayList getFirst" + myArrayList.getFirst());
-    System.out.println("myArrayList getLust" + myArrayList.getLust());
+    System.out.println("myArrayList getLust" + myArrayList.getLast());
     System.out.println("myArrayList size" + myArrayList.size());
     System.out.println("myArrayList contains " + myArrayList.contains(3));
     myArrayList.add(50);

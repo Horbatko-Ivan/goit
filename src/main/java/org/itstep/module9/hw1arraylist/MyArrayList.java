@@ -87,7 +87,7 @@ public class MyArrayList<T> implements List<T> {
   }
 
   @Override
-  public T getLust() {
+  public T getLast() {
     if (isEmpty()) {
       throw new NoSuchElementException();
     }
