@@ -63,6 +63,7 @@ public class Main {
 
     myLinkedList.clear();
     System.out.println("Clear list size is " + myLinkedList.size());
+    myLinkedList.print();
 
 
     System.out.print("Is Empty " + myLinkedList.isEmpty());

@@ -164,15 +164,10 @@ public class MyLinkedList<T> implements List<T> {
   }
 
   @Override
-  public void clear() {
-    Node<T> newNode = new Node<>(null);
-    tail = newNode;
-    while (this.head != null) {
-      newNode = this.head;
-      this.head = this.head.next;
-      newNode = new Node<>(null);
-      size--;
-    }
+  public void clear(){
+    head=null;
+    tail=null;
+    size=0;
   }
 
   @Override
