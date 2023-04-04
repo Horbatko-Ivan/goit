@@ -16,6 +16,11 @@ public class Main {
     System.out.print("Get last ");
     System.out.println(myLinkedList.getLast());
 
+    System.out.print("Remove last ");
+    myLinkedList.removeLast();
+    System.out.print("myLinkedList.size " + myLinkedList.size() + "/ ");
+    myLinkedList.print();
+
     System.out.println("Add first 66");
     myLinkedList.addFirst("66");
     System.out.print("myLinkedList.size " + myLinkedList.size() + "/ ");
@@ -29,6 +34,12 @@ public class Main {
 
     System.out.print("Get position 6 ");
     System.out.println(myLinkedList.get(6));
+
+    System.out.print("contains 6 ? ");
+    System.out.println(myLinkedList.contains("6"));
+
+    System.out.print("contains 16 ? ");
+    System.out.println(myLinkedList.contains("16"));
 
     System.out.println("add by index 3, value 77");
     myLinkedList.add(3, "77");

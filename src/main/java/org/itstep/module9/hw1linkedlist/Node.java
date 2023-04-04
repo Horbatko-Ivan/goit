@@ -16,7 +16,7 @@ public class Node<T> {
     this.prev = prev;
   }
 
-  public T dataElement() {
+  public T getDataElement() {
     return element;
   }
 

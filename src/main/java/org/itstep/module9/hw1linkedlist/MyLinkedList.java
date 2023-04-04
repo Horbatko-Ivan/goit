@@ -1,5 +1,7 @@
 package org.itstep.module9.hw1linkedlist;
 
+import java.util.Objects;
+
 public class MyLinkedList<T> implements List<T> {
 
   private Node<T> head;
@@ -100,25 +102,25 @@ public class MyLinkedList<T> implements List<T> {
   @Override
   public T get(int index) {
     if (head == null) return null;
-    if (index < 1 || index > size){
-      throw  new IllegalArgumentException();
+    if (index < 1 || index > size) {
+      throw new IllegalArgumentException();
     }
     Node<T> current = head;
 
-      for (int i = 1; i < index; i++) {
-        current = current.next;
-      }
-    return current.dataElement();
+    for (int i = 1; i < index; i++) {
+      current = current.next;
+    }
+    return current.getDataElement();
   }
 
   @Override
   public T getFirst() {
-    return head.dataElement();
+    return head.getDataElement();
   }
 
   @Override
   public T getLast() {
-    return tail.dataElement();
+    return tail.getDataElement();
   }
 
   @Override
@@ -140,6 +142,14 @@ public class MyLinkedList<T> implements List<T> {
 
   @Override
   public boolean contains(T element) {
+    if (head == null) return false;
+    Node<T> current = head;
+    while (current.next != null) {
+      if (current.getDataElement().equals(element)) {
+        return true;
+      }
+      current = current.next;
+    }
     return false;
   }
 
@@ -169,7 +179,7 @@ public class MyLinkedList<T> implements List<T> {
   public void print() {
     Node<T> current = head;
     while (current != null) {
-      System.out.print(current.dataElement() + " ");
+      System.out.print(current.getDataElement() + " ");
       current = current.next;
     }
     System.out.println();
@@ -190,5 +200,18 @@ public class MyLinkedList<T> implements List<T> {
       ", tail=" + tail +
       ", size=" + size +
       '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    MyLinkedList<?> that = (MyLinkedList<?>) o;
+    return size == that.size && Objects.equals(head, that.head) && Objects.equals(tail, that.tail);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(head, tail, size);
   }
 }
