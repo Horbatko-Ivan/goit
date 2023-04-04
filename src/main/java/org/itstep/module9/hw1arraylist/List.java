@@ -16,7 +16,7 @@ public interface List<T> {
 
   T getFirst();
 
-  T getLust();
+  T getLast();
 
   void set(int index, T element);
 
