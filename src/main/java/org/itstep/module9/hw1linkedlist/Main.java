@@ -5,6 +5,12 @@ public class Main {
     MyLinkedList<String> myLinkedList = new MyLinkedList<>();
     myLinkedList.add("12");
     myLinkedList.add("13");
+
+    myLinkedList.removeAt(2);
+    System.out.println("Removed at 2 ");
+    System.out.println("myLinkedList.size " + myLinkedList.size() + "/ " + " tail " + myLinkedList.getTail());
+    myLinkedList.print();
+
     myLinkedList.add("14");
     myLinkedList.add("15");
     myLinkedList.add("16");

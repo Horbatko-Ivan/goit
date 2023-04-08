@@ -85,6 +85,10 @@ public class MyLinkedList<T> implements List<T> {
       removeFirst();
       return;
     }
+    if (index == size) {
+      removeLast();
+      return;
+    }
     Node<T> current = head;
 
     while (index > 2 && current != null) {
@@ -95,7 +99,8 @@ public class MyLinkedList<T> implements List<T> {
     if ((current == null) || (current.next == null)) {
       return;
     }
-    current.next = current.next.next;
+    current.next.prev = current.prev;
+    current.prev.next = current.next;
     size--;
   }
 
@@ -103,7 +108,8 @@ public class MyLinkedList<T> implements List<T> {
   public T get(int index) {
     if (head == null) return null;
     if (index < 1 || index > size) {
-      throw new IllegalArgumentException();
+      System.out.println("IllegalArgumentException()");
+      return null;
     }
     Node<T> current = head;
 
@@ -164,10 +170,10 @@ public class MyLinkedList<T> implements List<T> {
   }
 
   @Override
-  public void clear(){
-    head=null;
-    tail=null;
-    size=0;
+  public void clear() {
+    head = null;
+    tail = null;
+    size = 0;
   }
 
   @Override
@@ -208,5 +214,13 @@ public class MyLinkedList<T> implements List<T> {
   @Override
   public int hashCode() {
     return Objects.hash(head, tail, size);
+  }
+
+  public Node<T> getHead() {
+    return head;
+  }
+
+  public Node<T> getTail() {
+    return tail;
   }
 }
