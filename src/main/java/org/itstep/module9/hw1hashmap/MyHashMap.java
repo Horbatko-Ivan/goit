@@ -58,14 +58,14 @@ public class MyHashMap<K, V> implements Map<K, V> {
     int hash = keyHash(key);
     Node<K, V> previous = null;
     Node<K, V> current = table[hash];
-    while (current != null){
-      if(current.getKey().equals(key)){
-        if(previous == null){
+    while (current != null) {
+      if (current.getKey().equals(key)) {
+        if (previous == null) {
           current = current.next;
           table[hash] = current;
           size--;
           return;
-        }else {
+        } else {
           previous.next = current.next;
           size--;
           return;
