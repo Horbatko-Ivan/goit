@@ -15,14 +15,15 @@ public class MyLinkedList<T> implements List<T> {
 
   @Override
   public void add(T element) {
+    Node<T> current = new Node<>(element);
     if (head == null) {
-      head = new Node<>(null, element, null);
+      head = tail = current;
+      head.prev = null;
+      tail.next = null;
     } else {
-      Node<T> current = head;
-      while (current.next != null) {
-        current = current.next;
-      }
-      current.next = tail = new Node<>(null, element, current);
+      tail.next = current;
+      current.prev = tail;
+      this.tail = current;
     }
     size++;
   }
@@ -32,48 +33,39 @@ public class MyLinkedList<T> implements List<T> {
     if (index < 1 || index > size) return;
     if (head == null) {
       if (index == 1) {
-        head = tail = new Node<>(null, element, null);
-        size++;
+        addFirst(element);
+        return;
       } else {
         return;
       }
     }
-    if (index == 1) {
-      Node<T> newNode = new Node<>(element);
-      head.prev = newNode;
-      newNode.next = head;
-      size++;
+    if (index == size) {
+      add(element);
       return;
     }
+    Node<T> newNode = new Node<>(element);
     Node<T> current = head;
-    while (current != null && index > 2) {
+    while (index > 2) {
       current = current.next;
       index--;
     }
-    if (current == null) {
-      head = tail = new Node<>(null, element, null);
-    } else {
-      Node<T> newNode = new Node<>(current.prev, element, current);
-      newNode.next = current.next;
-      newNode.prev = newNode;
-      if (current.next != null) {
-        current.next.prev = newNode;
-      }
-      current.next = tail = newNode;
-      size++;
-    }
+    newNode.prev = current;
+    newNode.next = current.next;
+    current.next = newNode;
+    newNode.next.prev = newNode;
+    size++;
   }
 
   @Override
   public void addFirst(T element) {
-    Node<T> newNode = new Node<>(head, element, null);
-    if (head != null) {
-      head.prev = newNode;
+    Node<T> current = new Node<>(element);
+    if (head == null) {
+      tail = current;
+    } else {
+      head.prev = current;
     }
-    head = newNode;
-    if (tail == null) {
-      tail = newNode;
-    }
+    current.next = head;
+    head = current;
     size++;
   }
 
@@ -150,7 +142,7 @@ public class MyLinkedList<T> implements List<T> {
   public boolean contains(T element) {
     if (head == null) return false;
     Node<T> current = head;
-    while (current.next != null) {
+    while (current != null) {
       if (current.getDataElement().equals(element)) {
         return true;
       }

@@ -8,7 +8,7 @@ public class Main {
 
     myLinkedList.removeAt(2);
     System.out.println("Removed at 2 ");
-    System.out.println("myLinkedList.size " + myLinkedList.size() + "/ " + " tail " + myLinkedList.getTail());
+    System.out.println("myLinkedList.size " + myLinkedList.size() + "/ " + " tail " + myLinkedList.getTail().getDataElement());
     myLinkedList.print();
 
     myLinkedList.add("14");
