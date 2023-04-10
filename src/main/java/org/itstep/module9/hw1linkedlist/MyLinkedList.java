@@ -30,22 +30,22 @@ public class MyLinkedList<T> implements List<T> {
 
   @Override
   public void add(int index, T element) {
-    if (index < 1 || index > size) return;
+    if (index < 0 || index > size - 1) return;
     if (head == null) {
-      if (index == 1) {
+      if (index == 0) {
         addFirst(element);
         return;
       } else {
         return;
       }
     }
-    if (index == size) {
+    if (index == size - 1) {
       add(element);
       return;
     }
     Node<T> newNode = new Node<>(element);
     Node<T> current = head;
-    while (index > 2) {
+    while (index > 1) {
       current = current.next;
       index--;
     }
@@ -72,18 +72,18 @@ public class MyLinkedList<T> implements List<T> {
   @Override
   public void removeAt(int index) {
     if (head == null) return;
-    if (index < 1 || index > size) return;
-    if (index == 1) {
+    if (index < 0 || index > size - 1) return;
+    if (index == 0) {
       removeFirst();
       return;
     }
-    if (index == size) {
+    if (index == size - 1) {
       removeLast();
       return;
     }
     Node<T> current = head;
 
-    while (index > 2 && current != null) {
+    while (index > 1 && current != null) {
       current = current.next;
       index--;
     }
@@ -99,13 +99,13 @@ public class MyLinkedList<T> implements List<T> {
   @Override
   public T get(int index) {
     if (head == null) return null;
-    if (index < 1 || index > size) {
+    if (index < 0 || index > size - 1) {
       System.out.println("IllegalArgumentException()");
       return null;
     }
     Node<T> current = head;
 
-    for (int i = 1; i < index; i++) {
+    for (int i = 0; i < index; i++) {
       current = current.next;
     }
     return current.getDataElement();

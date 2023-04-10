@@ -6,8 +6,8 @@ public class Main {
     myLinkedList.add("12");
     myLinkedList.add("13");
 
-    myLinkedList.removeAt(2);
-    System.out.println("Removed at 2 ");
+    myLinkedList.removeAt(1);
+    System.out.println("Removed at 1 ");
     System.out.println("myLinkedList.size " + myLinkedList.size() + "/ " + " tail " + myLinkedList.getTail().getDataElement());
     myLinkedList.print();
 
@@ -53,7 +53,7 @@ public class Main {
     myLinkedList.print();
 
     System.out.println("add by index 8, value 77");
-    myLinkedList.add(8, "77");
+    myLinkedList.add(7, "77");
     System.out.print("myLinkedList.size " + myLinkedList.size() + "/ ");
     myLinkedList.print();
 
