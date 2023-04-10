@@ -83,7 +83,7 @@ public class MyLinkedList<T> implements List<T> {
     }
     Node<T> current = head;
 
-    while (index > 1 && current != null) {
+    while (index >= 1 && current != null) {
       current = current.next;
       index--;
     }
@@ -100,8 +100,7 @@ public class MyLinkedList<T> implements List<T> {
   public T get(int index) {
     if (head == null) return null;
     if (index < 0 || index > size - 1) {
-      System.out.println("IllegalArgumentException()");
-      return null;
+      throw new IllegalArgumentException();
     }
     Node<T> current = head;
 
