@@ -2,11 +2,7 @@ package org.itstep.module10.hw1;
 
 public class Validator {
   public boolean isValid(String line) {
-    return lineLength(line) && (checkFirstFormatLine(line) || checkSecondFormatLine(line));
-  }
-
-  private boolean lineLength(String line) {
-    return (line.length() >= 12) && (line.length() <= 14);
+    return ((checkFirstFormatLine(line) && (line.length() == 14)) || (checkSecondFormatLine(line) && (line.length() == 12)));
   }
 
   private boolean checkFirstFormatLine(String line) {
@@ -48,6 +44,7 @@ public class Validator {
   private boolean isCheckFirstArray(boolean arrayCheck, char[] array) {
     for (char checkChar : array) {
       if (!Character.isDigit(checkChar)) {
+        arrayCheck = false;
         break;
       }
       arrayCheck = true;
@@ -55,4 +52,3 @@ public class Validator {
     return arrayCheck;
   }
 }
-
