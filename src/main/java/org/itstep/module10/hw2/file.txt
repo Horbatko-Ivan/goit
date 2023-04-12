@@ -1,0 +1,6 @@
+name age
+alice 21
+ryan 30
+ivan 36
+nata 31
+masha 5
