@@ -1,6 +1,5 @@
 package org.itstep.module10.hw3;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class CalculationService {
