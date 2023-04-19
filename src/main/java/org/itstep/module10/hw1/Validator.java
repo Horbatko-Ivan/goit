@@ -13,7 +13,7 @@ public class Validator {
     char[] checkFirstElement = arrFirst[0].toCharArray();
     boolean checked = checkFirstElement[0] == '(' && checkFirstElement[4] == ')';
 
-    if ((arrFirst.length >= 2) && checked) {
+    if ((arrFirst.length == 2) && checked) {
       String[] arrSecond = arrFirst[1].split("-");
       char[] firstCharArray = arrFirst[0].replaceFirst("\\(", "").replaceFirst("\\)", "").toCharArray();
       char[] secondCharArray = arrSecond[0].toCharArray();
@@ -30,7 +30,7 @@ public class Validator {
     boolean checkFirstArray = false;
     boolean checkSecondArray = false;
     boolean checkThirdArray = false;
-    if (arrFirst.length >= 3) {
+    if (arrFirst.length == 3) {
       char[] firstCharArray = arrFirst[0].toCharArray();
       char[] secondCharArray = arrFirst[1].toCharArray();
       char[] thirdCharArray = arrFirst[2].toCharArray();
