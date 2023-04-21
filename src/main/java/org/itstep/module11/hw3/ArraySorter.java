@@ -2,11 +2,11 @@ package org.itstep.module11.hw3;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArraySorter {
 
-  public List<Integer> sortArray(String[] dataArray) {
+  public String sortArray(String[] dataArray) {
     return Arrays.stream(dataArray)
       .map(s -> Arrays.stream(s.trim().split(","))
         .mapToInt(el -> Integer.parseInt(el.trim()))
@@ -14,6 +14,7 @@ public class ArraySorter {
         .toList())
       .flatMap(Collection::stream)
       .sorted()
-      .toList();
+      .map(Object::toString)
+      .collect(Collectors.joining(", "));
   }
 }
