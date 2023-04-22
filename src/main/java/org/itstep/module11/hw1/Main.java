@@ -7,7 +7,7 @@ public class Main {
 
   public static void main(String[] args) {
     NameReader nameReader = new NameReader();
-    List<String> listNames = nameReader.reader(NAMES);
+    String listNames = nameReader.reader(NAMES);
     System.out.println(listNames);
   }
 }
