@@ -91,7 +91,7 @@ public class FizzBazzCounter extends Thread {
         }
 
         while (!blockingQueue.isEmpty()) {
-          System.out.print(blockingQueue.poll() + " ");
+          System.out.print(blockingQueue.poll() + ", ");
         }
       }
       Thread.sleep(100);
